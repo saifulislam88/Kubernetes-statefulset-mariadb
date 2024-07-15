@@ -1,0 +1,21 @@
+graph TD
+    subgraph Kubernetes Cluster
+        B[LoadBalancer Service]
+        C[Headless Service]
+        
+        subgraph StatefulSet
+            E[MariaDB Pod 0]
+            F[MariaDB Pod 1]
+            G[MariaDB Pod 2]
+        end
+        
+        subgraph PersistentVolumes
+            H[Persistent Volume 0_NFS]
+            I[Persistent Volume 1_NFS]
+            J[Persistent Volume 2_NFS]
+        end
+    end
+
+    E --> H
+    F --> I
+    G --> J
